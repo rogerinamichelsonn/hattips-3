@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* colours */
+:root{
+  --bg-clr: #222;
+  --text-clr: #222;
+  --acct-clr: #222;
+  --grey1-clr: #222; 
+  --grey2-clr: #2222;
+  --grey3-clr: #222;
+  --grey4-clr: #222;
+}
+
+:root[data-theme = 'light']{
+  --bg-img: url('images/light-background-Bernina.png');
+
+  --bg-clr: #eee;
+
+  --text-clr: #111;
+  --acct-clr: #058;
+
+  --grey1-clr: #cdf6; /*shades of grey*/
+  --grey2-clr: #cde;
+  --grey3-clr: #bcd;
+  --grey4-clr: #235;
+}
+
+:root[data-theme = 'dark']{
+  --bg-img: url('images/dark-background-ISS.png');
+
+  --bg-clr: #111;
+
+  --text-clr: #ccc;
+  --acct-clr: #fd4;
+
+  --grey1-clr: #1236; /*shades of grey*/
+  --grey2-clr: #124;
+  --grey3-clr: #235;
+  --grey4-clr: #bcd;
+}
+
+/* main */
+body{
+  color: var(--text-clr);
+  margin: 0;
+  font-size: 150%;
+  font-style: normal;
+  font-family: 'Atkinson Hyperlegible Next', sans-serif;
+  font-optical-sizing: auto;
+  background-color: var(--grey2-clr);
+  background-image: var(--bg-img);
+  background-repeat: no-repeat;
+}
+
+/* text */
+h1{
+  font-size: 3em;
+  text-align: center;
+}
+
+h2{font-size: 2.8em;}
+h3{font-size: 2.4em;}
+h4{font-size: 1.8em;}
+h5{font-size: 1.4em;}
+h6{font-size: 1.0em;}
+
+h1,h2,h3,h4,h5,h6{margin-bottom: 0;}
+
+small{
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+a:hover, button:hover{font-weight: bold;}
+
+.equation{
+  font-size: 1em;
+  overflow-x: auto;
+}
+
+/* shared attributes */
+
+header, footer, div.menu, img, td{padding: 0.5em;}
+tr:nth-child(even){background-color: var(--grey3-clr);}
+div.image-container, th, td{border: 2px solid var(--text-clr);}
+div.table-container, td{overflow: auto;}
+
+div.content, aside, article, main{
+  padding: 0.5em;
+  overflow: auto;
+}
+
+a, a:visited, li.index-home, li.index-active{color: var(--acct-clr);}
+
+/* page */
+hr{border: 0.1em solid var(--text-clr);}
+
+header, footer, div.content{
+  width: 80%;
+  margin: auto;
+  background-color: var(--grey1-clr);
+
+}
+
+/* settings */
+div.menu{
+  right: 1%;
+  bottom: 1%;
+  z-index: 3;
+  position: fixed;
+  background-color: #1118;
+}
+
+div.menu > button{
+  width: 1.8em;
+  font-size: 1.5em;
+  padding: 0;
+  background-color: var(--text-clr);
+  border: none;
+}
+
+div.menu > button:hover{background-color: var(--acct-clr);}
+
+div.menu button, div.menu a{color: var(--bg-clr);}
+
+div.menu img{
+  margin: 0;
+  padding: 0;
+  width: 1.5em;
+  background-color: #eee;
+}
+
+/* images */
+.image-container{
+  width: 25%;
+  float: right;
+  margin: 0.25em;
+  background-color: var(--grey2-clr);
+}
+
+.image-container p{
+  margin: 0 1em 0.5em 1em;
+  font-size: 0.8em;
+  font-weight: 100;
+}
+
+img{width: 90%;}
+
+/* tables */
+table{
+  margin: auto;
+  border-collapse: collapse;
+}
+
+/* contents */
+main{height: 90vh;}
+
+article h1 {text-align: left;}
+
+aside, article, main{background-color: var(--bg-clr);}
+
+div.content{
+  gap: 0.25em;
+  display: grid;
+  grid-template-columns: auto 80%;
+}
+
+input{
+  color: var(--text-clr);
+  font-size: 0.6em;
+  border: 0.2em solid var(--text-clr);;
+  background-color: var(--bg-clr);
+}
+
+/* lists */
+li.index-home{list-style-type: '⛰';}
+
+ul{
+  padding: 0 25px;
+  list-style-type: circle;
+}
+
+li.index-active{
+  font-weight: bold;
+  list-style-type: square;
+}
+
+/* collapsible */
+.active, .collapsible:hover{background-color: var(--grey3-clr);}
+
+.collapsible:after {
+  float: right;
+  content: '\21E9';
+}
+
+.active:after {content: '\21E7';}
+
+.collapsible-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  background-color: var(--grey2-clr);
+}
+
+.collapsible{
+  color: var(--text-clr);
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 1em;
+  font-size: 16px;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  background-color: var(--grey3-clr);
+}
+
+/* media queries */
+@media (min-width: 1920px){body{background-size: 100% auto;}}
+
+@media screen and (max-width: 1056px){
+  body{font-size: 120%;}
+  aside ul{columns: 4;}
+  header, footer, div.content{width: 95%;}
+  div.content{grid-template-columns: auto;}
+  input{font-size: 0.8em;}
+
+  aside, main, article{
+    height: auto;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 640px){
+  body{font-size: 80%;}
+  ul{columns: 1;}
+  img{width: 80%;}
+  div.menu > button{width:3em;}
+  input{font-size: 1em;}
+  div.image-container{
+    width: 75%;
+    float: none;
+    text-align: center;
+  }
+}
