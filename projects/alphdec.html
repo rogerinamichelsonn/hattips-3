@@ -1,0 +1,781 @@
+<!doctype html>
+<html dir='ltr' lang='en-gb'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel='home' href='index.html'>
+
+    <link rel='icon' type='../image/png' href='../images/logotip.png'>
+    <link rel='stylesheet' href='../styles.css'>
+
+    <title>Alpha-Decimal | Hat tips</title>
+
+    <script src='../js/common-scripts.js'></script>
+    <script id='MathJax-script' async src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>
+
+    <style>
+      div.conversion-container{
+        padding: 0.5em;
+        display: grid;
+        overflow-x: auto;
+        text-align: center;
+        font-family: monospace;
+        background-color: var(--hbg2-clr);
+        grid-template-areas: 'hd hd';
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .conversion-container p{margin: 0.5em 1em 0.5em 0;}
+      .conversion-container input{
+        width:80%;
+        text-align: right;
+      }
+
+      div.main-unit-container{
+        border: 0.1em solid var(--text-clr);
+        grid-area: hd;
+        text-align: center;
+      }
+      .main-unit-container input{width: 16em;}
+
+      @media screen and (max-width: 640px){
+        div.conversion-container{
+          grid-template-areas: 'hd';
+          grid-template-columns: repeat(1, 1fr);
+        }
+        div.main-unit-container input{width: 80%;}
+      }
+    </style>
+
+  </head>
+  
+  <body>
+    <header>
+      <h1>&Hcirc;at tips</h1>
+    </header>
+    <div class='menu'>
+      <button onclick='themeToggle()' type='button' id='toggle-theme'>&#9728;&#9789;</button>
+    </div>
+
+    <div class='content'>
+      <aside>
+        <small>hat links</small>
+        <ul>
+          <li class='index-home'><a href='../index.html'>lobby page</a></li>
+          <li><a href='../contents.html'>content page</a></li>
+          <li><a href='../image-references.html'>image references</a></li>
+        </ul>
+        <small>projects</small>
+        <ul>
+          <li class='index-active'>Alpha-Decimal</li>
+          <li><a href='redbin.html'>Reduced Binary</a></li>
+        </ul>
+      </aside>
+      <main id='main'>
+        <article>
+          <h2>The Alpha-Decimal Standard</h2>
+          <small>originally uploaded 2025-April-7</small>
+          <hr>
+          <p>The Alpha-Decimal Measurement Standard (abbreviated <i>'AlphDec'</i> or <i>'ADC'</i>) is a standard of weights and measures derived from the International System (SI) that makes use of symbols from the <i>'Basic Latin'</i> Unicode block &mdash;primarily the English (26-letter) latin alphabet and the Western Arabic numerals&mdash; to abstract and quantify the physical world.</p>
+          <p>At the core of AlphDec lie the <b>seven fundamental units</b> which are defined to set the numeric value of important physical constants to a fixed number easy to represent using scientific notation (like natural systems of units such as Stoney's or Planck's) while existing at a convenient scale for everyday use (like the original metric system or several imperial weights and measures)</p>
+          <p>The physical constants that define AlphDec are the same used by the SI after the 2019 redefinition, detailed in the 9th edition of the SI brochure issued by the International Bureau of Weights and Measures (BIPM).</p>
+
+          <small>List of defining constants</small>
+          <div class='table-container'>
+            <table>
+              <tr>
+                <th scope='col'>#</th>
+                <th scope='col'>Constant</th>
+                <th scope='col'>Symbol</th>
+                <th scope='col'>ADC Numeric value</th>
+                <th scope='col'>QSN</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Hyperfine transition frequency of caesium-133</td>
+                <td><i>&Delta;v<sub>Cs</sub></i></td>
+                <td>3.971217017&times;10<sup>9</sup></td>
+                <td>c</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Speed of light in a vacuum</td>
+                <td><i>c</i></td>
+                <td>10<sup>8</sup></td>
+                <td>cd</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Reduced Planck constant</td>
+                <td><i>&hbar;</i></td>
+                <td>10<sup>-34</sup></td>
+                <td>cdb</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Elementary charge</td>
+                <td><i>q<sub>e</sub></i></td>
+                <td>10<sup>-18</sup></td>
+                <td>baab</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Boltzmann constant</td>
+                <td><i>k<sub>B</sub></i></td>
+                <td>10<sup>-24</sup></td>
+                <td>edb.c</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Luminous efficacy of highly visible monochromatic radiation</td>
+                <td><i>K<sub>cd</sub></i></td>
+                <td>10<sup>3</sup></td>
+                <td>fec.ab(b)</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Avogadro constant</td>
+                <td><i>N<sub>A</sub></i></td>
+                <td>5&times;10<sup>24</sup></td>
+                <td>.aac</td>
+              </tr>
+            </table>
+          </div>
+          <p><i>Note.</i> The names of the constants and the symbols used to represent them may be different from those listed in the SI brochure or in other sources.</p>
+
+          <h3>About the units</h3>
+          <p>Alpha-Decimal base units are composed of the 7 fundamental units and 8 complementary units for a total of 15.</p>
+
+          <h4>Base units</h4>
+          <p>Base units are used to conveniently describe the physical world and are composed of the seven fundamental along with eight <i>'complementary'</i> units. They are identified by the <i>'-mon'</i> suffix on their name and by their symbol composed by the first two consonant letters of their name.</p>
+          <p>Each fundamental unit describes one physical dimension, these being time, length, mass, electric current, thermodynamic temperature, luminous intensity and amount of substance.</p>
+          <small>Conversion tools are at the bottom of this page.</small>
+
+          <h5>The cronmon</h5>
+          <p>The cronmon (symbol cr) is the fundamental unit of time, named after the Greek word <i lang='el'>'χρόνος'</i> (chr&oacute;nos). It is defined by taking the fixed numerical value of the unperturbed ground-state hyperfine transition frequency of the caesium-133 atom, <i>&Delta;v<sub>Cs</sub></i>, to be 3 971 217 017 when expressed in the unit cr<sup>-1</sup>.</p>
+          <p>The effect of this definition is that the contemporary mean solar day on earth (the period of time required for the Sun to return to its highest point in the sky after one full Earth rotation) is roughly equal to 200 000 cr; resulting in a more convenient version of <i>'metric time'</i>.</p>
+          <p>It is possible to express the definition of the cronmon with the following equation</p>
+          <p class='equation'>
+            \[1\text{cr} = \frac{3971217017}{\Delta v_{Cs}}.\]
+          </p>
+
+          <p>Because the second is defined with a similar equation and with the same constant it is possible to determine an exact conversion factor between the two.</p>
+          <p class='equation'>
+            \[1\text{s} = \frac{9192631770}{\Delta v_{Cs}}\]
+            \[\Delta v_{Cs} = \frac{1\text{cr}}{3971217017} = \frac{1\text{s}}{9192631770}\]
+            \[1\text{cr} = \left(\frac{3971217017}{9192631770}\right)\text{s} \approx 0.4320\,0001\,0047\,18\;\text{s}\]
+            \[1\text{s} = \left(\frac{9192631770}{3971217017}\right)\text{cr}\approx 2.3148\,1476\,0978\,35\;\text{cr}.\]
+          </p>
+
+          <p>The second is roughly twice as long as the cronmon and so an imaginary Alpha-Decimal clock would tick roughly twice as fast.</p>
+
+          <h6>The imnida and bibloda</h6>
+          <p>As complementary units to the cronmon, the imnida (symbol ii) and bibloda (symbol i) are powers of 10 of cronmon with special names to subdivide the solar day.</p>
+          <div class='image-container'>
+            <img src='../images/20i-clock.png' alt='image of a twenty-bibloda Alpha-Decimal clock'>
+            <p>Alpha-Decimal 20-i clock</p>
+          </div>
+
+          <p>From the Greek for <i>'hymn'</i> or <i>'song'</i>, <i lang='el'>'ύμνος'</i> (&yacute;mnos), the imnida is analogue to the minute. It is defined to be the period of time equivalent to 100 cr, about 43.2 seconds.</p>
+          <p>The bibloda being the analogue for the hour is named after the Greek word for book <i lang='el'>'βιβλίο'</i> (vivl&iacute;o) and is defined to be the period of time equivalent to 100 ii or 10 000 cr (about 4320 seconds or 1 hour and 12 minutes).</p>
+
+          <h5>The mikmon</h5>
+          <p>The mikmon (symbol mk) is the fundamental unit of length, named after the Greek <i lang='el'>'μήκος'</i> (m&iacute;kos). It is defined by taking the fixed numerical value of the speed of light in vacuum, <i>c</i>, to be 100 000 000 when expressed in the unit of speed, cr<sup>-1</sup> mk (where the cronmon is defined in terms of the caesium frequency <i>&Delta;v<sub>Cs</sub></i>). Meaning light in a vacuum travels exactly 100 000 000 mk in 1 cr.</p>
+          <p>Just like with the cronmon, the definition of the mikmon can be summarised with the following equation:</p>
+          <p class='equation'>
+            \[1\text{mk} = 39.7121\,7017\; \frac{c}{\Delta v_{Cs}} = \left(\frac{c}{10^8}\right)\text{cr}.\]
+          </p>
+
+          <p>And it can be used to derive an exact conversion factor with the metre:</p>
+          <p class='equation'>
+            \[1\text{m} = \frac{9192631770}{299792458}\frac{c}{\Delta v_{Cs}}\]
+            \[\frac{c}{\Delta v_{Cs}} = \left(\frac{10^8}{3971217017}\right)\text{mk} = \left(\frac{299792458}{9192631770}\right)\text{m}\]
+            \[1\text{mk} = \left(\frac{3971217017\times 299792458}{9192631770\times 10^8}\right)\text{m} = \left(\frac{8.5038636484132699}{6.56616555}\right)\text{m} \approx 1.2951\,0344\,8680\,68\;\text{m}\]
+            \[1\text{m} = \left(\frac{6.56616555}{8.5038636484132699}\right)\text{mk} \approx 0.7721\,3909\,1297\,07\;\text{mk}.\]
+          </p>
+
+          <p>As well as with the international foot:</p>
+          <p class='equation'>
+            \[1\text{ft} = 0.3048\text{m}\]
+            \[1\text{mk} = \left(\frac{3971217017\times 299792458}{0.3048\times 9192631770\times 10^8}\right)\text{ft} = \left(\frac{8.5038636484132699}{2.00136725964}\right)\text{ft} \approx 4.2490\,2706\,2600\,65\;\text{ft}\]
+            \[1\text{ft} = \left(\frac{2.00136725964}{8.5038636484132699}\right)\text{mk} \approx 0.2353\,4799\,5027\,35\;\text{mk}.\]
+          </p>
+
+          <h5>The adramon</h5>
+          <p>The adramon (symbol dr) is the fundamental unit of mass, named after the Greek word for <i>'inertia'</i> <i lang='el'>'αδράνεια'</i> (adr&aacute;neia). It is defined by taking the fixed numerical value of the reduced Planck constant, <i>&hbar;</i>, to be 10<sup>-34</sup> when expressed in the unit of action, cr<sup>-1</sup> mk<sup>2</sup> dr (where the cronmon and mikmon are defined in terms of <i>&Delta;v<sub>Cs</sub></i> and <i>c</i>).</p>
+          <p class='equation'>
+            \[1\text{dr} = \frac{10^{41}}{3.971217017} \frac{\Delta v_{Cs}\hbar}{c^2} = \left(\frac{\hbar}{10^{-34}}\right)\text{cr mk}^{-2}.\]
+          </p>
+
+          <p>Because the definition of the kilogram and the avoirdupois pound are defined in terms of the Planck constant, <i>h</i>, instead of its reduced value, <i>&hbar;</i> (also called the Dirac constant), the conversion factor between these units involves the 2&pi; factor that separates these constants.</p>
+          <p>In the case of the kilogram:</p>
+          <p class='equation'>
+            \[1\text{kg} = \frac{299792458^2\times 2\pi}{9192631770\times 6.62607015\times 10^{-34}} \frac{\Delta v_{Cs}\hbar}{c^2}\]
+            \[\frac{\Delta v_{Cs}\hbar}{c} = 3.971217017\times 10^{-41}\; \text {dr} = \left(\frac{9192631770\times 6.62607015\times 10^{-34}}{299792458^2\times 2\pi}\right)\text{kg}\]
+            \[1\text{dr} = \left(\frac{9192631770\times6.62607015\times10^{7}}{3.971217017\times299792458^{2}\times2\pi}\right)\text{kg} = \left(\frac{3.10770525362952375}{3.641991693792374261626306\times \pi}\right)\text{kg} \approx 0.2716\,1327\,8872\,01\;\text{kg}\]
+            \[1\text{kg} = \left(\frac{3.641991693792374261626306}{3.10770525362952375}\pi\right)\text{dr} \approx 3.6817\,0512\,1903\,16\;\text{dr}.\]
+          </p>
+
+          <p>In the case of the avoirdupois pound:</p>
+          <p class='equation'>
+            \[1\text{lb} = 0.4535\,9237\;\text{kg}\]
+            <!-- https://www.nist.gov/system/files/documents/2024/01/14/NIST%20HB%2044%202024%20Appendix%20C%20General%20Tables%20of%20Units%20of%20Measurement.pdf page C-20 -->
+            \[1\text{dr} = \left(\frac{3.10770525362952375}{1.65197964390759732925807619288522\times \pi}\right)\text{lb} \approx 0.5988\,0477\,8995\,76\;\text{lb}\]
+            \[1\text{lb} = \left(\frac{1.65197964390759732925807619288522}{3.10770525362952375}\pi\right)\text{dr} \approx 1.6699\,9335\,1885\,19\;\text{dr}.\]
+          </p>
+
+          <h5>The ilecmon</h5>
+          <p>The ilecmon (symbol lc) is the fundamental unit of electric current. It is defined by taking the fixed numerical value of the elementary charge, <i>q<sub>e</sub></i>, to be 10<sup>-18</sup> when expressed in the unit of charge, cr lc (where the cronmon is defined in terms of <i>&Delta;v<sub>Cs</sub></i>).</p>
+          <p class='equation'>
+            \[1\text{lc} = \frac{10^9}{3.971217017} \Delta v_{Cs}\;q_e = \left(\frac{q_e}{10^{-18}}\right)\text{cr}^{-1}.\]
+          </p>
+
+          <p>The effect of this definition is that one ilecmon is the electric current corresponding to the flow of 10<sup>18</sup> elementary charges per cronmon.</p>
+          <p>Deriving conversion factors for the ampere, abampere and statampere is simpler.</p>
+          <p>For the ampere:</p>
+          <p class='equation'>
+            \[1\text{A} = \frac{10^{19}}{9192631770\times 1.602176634}\Delta v_{Cs}\;q_{e}\]
+            \[\Delta v_{Cs}\;q_{e} = 3.971217017\times 10^{-9}\;\text{lc} = \left(\frac{9192631770\times 1.602176634}{10^{19}}\right)\text{A}\]
+            \[1\text{lc} = \left(\frac{9192631770 \times 1.602176634}{3.971217017\times 10^{10}}\right)\text{A} = \left(\frac{7.36410991343003109}{19.856085085}\right)\text{A} \approx 0.3708\,7421\,2207\,78\;\text{A}\]
+            \[1\text{A} = \left(\frac{19.856085085}{7.36410991343003109}\right)\text{lc} \approx 2.6963\,3198\,2876\,6\;\text{lc}.\]
+          </p>
+
+          <p>For the abampere:</p>
+          <p class='equation'>
+            \[1\text{abA} = 10\text{A}\]
+            \[1\text{lc} = \left(\frac{7.36410991343003109}{198.56085085}\right)\text{abA} \approx 0.0370\,8742\,1220\,78\;\text{abA}\]
+            \[1\text{abA} = \left(\frac{198.56085085}{7.36410991343003109}\right)\text{lc} \approx 26.9633\,1982\,8765\,97\;\text{lc}.\]
+          </p>
+
+          <p>For the statampere:</p>
+          <p class='equation'>
+            \[1\text{statA} = \left(\frac{1}{2997924580}\right)\text{A}\]
+            \[1\text{lc} = \left(\frac{2997924580\times 7.36410991343003109}{19.856085085}\right)\text{statA} = \left(\frac{11038523059.6467811574375961}{9.9280425425}\right)\approx 1111852916.8658\,4059\,1500\,23\;\text{statA}\]
+            \[1\text{statA} = \left(\frac{9.9280425425}{11038523059.6467811574375961}\right)\text{lc} \approx 8.9939\,9538\,2220\,71\times 10^{-10}\;\text{lc}.\]
+          </p>
+
+          <h6>The magnisteda</h6>
+          <p>The magnisteda (symbol mse) &mdash;named after the Greek <i lang='el'>'Μαγνητοστατική'</i> (magnitostatik&iacute;)&mdash; is a complementary unit of charge that sets the fixed numeric value of <i>q<sub>e</sub></i> to be 8.542 454 310 285 43 &times; 10<sup>-20</sup>. This value of the elementary charge is an approximation of the square root of the fine-structure constant (or the Sommerfeld constant), <i>&alpha;</i>, multiplied by 10<sup>-18</sup>. This makes the magnitude of the vacuum magnetic permeability constant, <i>&mu;<sub>0</sub></i>, close to 4&pi; times 10<sup>-6</sup> &mdash;a classic convention that originally defined the ampere&mdash;.</p>
+          <p>The following is a definition of the fine-structure constant in terms of some Alpha-Decimal defining constants along with the magnetic consonant (<i>&mu;<sub>0</sub></i>):</p>
+          <p class='equation'>
+            \[\alpha = \frac{c\;q_e^2\;\mu_0}{4\pi\;\hbar}.\]
+          </p>
+
+          <p>Using the units cr, mk, dr, mse, the equation values of these constants can written as follows:</p>
+          <p class='equation'>
+            \[\alpha \approx \left(\frac{10^8\times 8.54245431028543^2\times 10^{-40}\times 4\pi\times 10^{-6}}{4\pi\times 10^{-34}}\right)\frac{\text{mk}\; \text{dr}}{\text{cr}^2\; \text{mse}^2} \approx \frac{8.54245431028543^2}{10^4}\frac{\text{mk}\; \text{dr}}{\text{cr}^2\; \text{mse}^2}\]
+            \[\alpha \approx 0.0072\,9735\,2564\,33\;\frac{\text{mk}\; \text{dr}}{\text{cr}^2\; \text{mse}^2}.\]
+          </p>
+
+          <p>The accepted magnitude listed by CODATA in 2022  for the fine-structure constant being (with a relative uncertainty of 1.6 &times; 10<sup>-10</sup>):</p>
+          <p class='equation'>
+            \[\alpha \approx 0.0072\,9735\,2564\,3.\]
+          </p>
+
+          <p><i>&alpha;</i> belongs to a particular set of <b>dimensionless</b> physical constants. Meaning their magnitude (numerical value) remains the same regardless of the measuring system. Given proper observations, the value of the fine-structure constant will be the same with metric units, imperial units, or any kind of units.</p>
+          <p>While unchanging, this value is not precisely known and, just like the magnetic constant, needs to be determined experimentally. Using any of them as defining constants will require other ones to be determined experimentally with some uncertainty.</p>
+
+          <h5>The zesmon</h5>
+          <p>The zesmon (symbol zs) is the unit of thermodynamic temperature. It is defined by taking the fixed numerical value of the Boltzmann constant, <i>k<sub>B</sub></i>, to be 10<sup>-24</sup> when expressed in the unit of entropy, cr<sup>-2</sup> mk<sup>2</sup> dr zs<sup>-1</sup> (where the cronmon, mikmon and adramon are defined in terms of  <i>&Delta;v<sub>Cs</sub></i>, <i>c</i> and <i>&hbar;</i>).</p>
+          <p class='equation'>
+            \[1\text{zs} = \frac{10}{3.971217017}\frac{\Delta v_{Cs}\; \hbar}{k_B} = \left(\frac{10^{-24}}{k_B}\right)\text{cr}^{-2}\text{mk}^2\text{dr}.\]
+          </p>
+
+          <p>It is possible to derive a conversion factor for absolute scales of temperature such as the Kelvin scale:</p>
+          <p class='equation'>
+            \[1\text{K} = \frac{2\pi\times 1.380649\times 10^{-23}}{9192631770\times 6.62607015\times 10^{-34}}\frac{\Delta v_{Cs}\;\hbar}{k_B}\]
+            \[\frac{\Delta v_{Cs}\;\hbar}{k_B} = 0.3971217017\; \text{zs} = \left(\frac{9192631770\times 6.62607015}{2\pi\times 1.380649\times 10^{11}}\right)\text{K}\]
+            \[1\text{zs} = \left(\frac{9192631770\times 6.62607015}{0.3971217017\times 2\pi\times 1.380649\times 10^{11}}\right)\text{K} = \left(\frac{1.21822045942277331}{2.1931427213216132\times\pi}\right)\text{K} \approx 0.1768\,1093\,5291\,96\;\text{K}\]
+            \[1\text{K} = \left(\frac{2.1931427213216132}{1.21822045942277331}\pi\right)\text{zs} \approx 5.6557\,5878\,1823\,91\;\text{zs}.\]
+          </p>
+
+          <p>Or the Rankine scale:</p>
+          <p class='equation'>
+            \[1\text{R} = \left(\frac{5}{9}\right)\text{K}\]
+            <!-- https://www.nist.gov/system/files/documents/2024/01/14/NIST%20HB%2044%202024%20Appendix%20C%20General%20Tables%20of%20Units%20of%20Measurement.pdf -->
+            \[1\text{zs} = \left(\frac{2.192796826960991958}{2.1931427213216132\times \pi}\right) \approx 0.3182\,5968\,3525\,53\;\text{R}\]
+            \[1\text{R} = \left(\frac{2.1931427213216132}{2.192796826960991958}\pi\right) \approx 3.1420\,8821\,2124\,39\;\text{zs}\]
+          </p>
+
+          <p>The zesmon scale, in comparison to the previous two, is significantly smaller</p>
+
+          <h6>The Aeros and lambda scales of temperature</h6>
+
+          <div class='image-container' style='width: 40%;'>
+            <img src='../images/thermometer-comparison.png' alt='different temperature scales visualised with thermometers'>
+            <p></p>
+          </div>
+
+          <p>It is uncommon to use an absolute temperature scale in everyday life. While convenient for scientific purposes, relative scales are favoured outside of technical settings.Both Aeros and lambda scales are relative scales with the same magnitude as the zes different by their starting (0) position.</p>
+          <p>The degree Aeros (symbol °A) is defined by starting at 1545 in the zesmon scale, which is close to the triple and melting point of water, analogous to Celcius temperature.</p>
+          <p>The degree lambda (symbol °&lambda; or °l) is defined by starting at 4515 in the zesmon scale, which is close to the Draper point, the point at which most solid bodies begin to emit radiation in the visible spectrum. It exists to better express hot temperatures. Given the small magnitude of the zesmon scale the numbers get inconveniently large faster in comparison to other measurement systems. Lambda degrees are meant to replace Aeros after said 'inconvenience' point.</p>
+          <p>To better illustrate the scales, the following table contains some useful temperatures in the aforementioned units:</p>
+
+          <small>Reference temperatures</small>
+          <div class='table-container'>
+            <table>
+              <thead>
+                <tr>
+                  <th scope='col'>Temperature</th>
+                  <th scope='col'>zesmon<br>(zs)</th>
+                  <th scope='col'>kelvin<br>(K)</th>
+                  <th scope='col'>rankine<br>(R)</th>
+                  <th scope='col'>degree Aeros<br>(°A)</th>
+                  <th scope='col'>degree lambda<br>(°l)</th>
+                  <th scope='col'>degree Celsius<br>(°C)</th>
+                  <th scope='col'>degree Fahrenheit<br>(°F)</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>Absolute zero</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>-1545</td>
+                <td>-4515</td>
+                <td>-273.15</td>
+                <td>-459.67</td>
+              </tr>
+              <tr>
+                <td>Lowest recorded natural temperature on Earth</td>
+                <td>1043.7283</td>
+                <td>184.5426</td>
+                <td>332.1766</td>
+                <td>-501.2717</td>
+                <td>-3471.2717</td>
+                <td>-88.6074</td>
+                <td>-127.4934</td>
+              </tr>
+              <tr>
+                <td>Fahrenheit's ice-salt mixture</td>
+                <td>1444.3237</td>
+                <td>255.3722</td>
+                <td>459.6700</td>
+                <td>-100.6763</td>
+                <td>-3070.6763</td>
+                <td>-17.7778</td>
+                <td>0.0000</td>
+              </tr>
+              <tr>
+                <td>Ice melts (at 1atm)</td>
+                <td>1544.8705</td>
+                <td>273.1500</td>
+                <td>491.6700</td>
+                <td>-0.1295</td>
+                <td>-2970.1295</td>
+                <td>0.0000</td>
+                <td>32.0000</td>
+              </tr>
+              <tr>
+                <td>Triple point of water</td>
+                <td>1544.9271</td>
+                <td>273.1600</td>
+                <td>491.6880</td>
+                <td>-0.0729</td>
+                <td>-2970.0729</td>
+                <td>0.0100</td>
+                <td>32.0180</td>
+              </tr>
+              <tr>
+                <td>Average contemporary surface temperature on Earth</td>
+                <td>1629.7069</td>
+                <td>288.1500</td>
+                <td>518.6700</td>
+                <td>84.7069</td>
+                <td>-2885.2931</td>
+                <td>15.0000</td>
+                <td>59.0000</td>
+              </tr>
+              <tr>
+                <td>Room temperature (NIST definition)</td>
+                <td>1663.6414</td>
+                <td>294.1500</td>
+                <td>529.4700</td>
+                <td>118.6414</td>
+                <td>-2851.3586</td>
+                <td>21.0000</td>
+                <td>69.8000</td>
+              </tr>
+              <tr>
+                <td>Normal human body temperature</td>
+                <td>1752.998</td>
+                <td>309.9492</td>
+                <td>557.9086</td>
+                <td>207.998</td>
+                <td>-2762.002</td>
+                <td>36.7992</td>
+                <td>98.2386</td>
+              </tr>
+              <tr>
+                <td>Highest recorded natural temperature on Earth</td>
+                <td>1872.0562</td>
+                <td>331.0000</td>
+                <td>595.8000</td>
+                <td>327.0562</td>
+                <td>-2642.9438</td>
+                <td>57.8500</td>
+                <td>136.1300</td>
+              </tr>
+              <tr>
+                <td>Water boils (at 1atm)</td>
+                <td>2110.3553</td>
+                <td>373.1339</td>
+                <td>671.6410</td>
+                <td>565.3553</td>
+                <td>-2404.6447</td>
+                <td>99.9839</td>
+                <td>211.9710</td>
+              </tr>
+              <tr>
+                <td>Draper point</td>
+                <td>4513.2955</td>
+                <td>798.0000</td>
+                <td>1436.4000</td>
+                <td>2968.2955</td>
+                <td>-1.7045</td>
+                <td>524.8500</td>
+                <td>976.7300</td>
+              </tr>
+            </table>
+          </div>
+
+          <h5>The fosmon</h5>
+          <p>The fosmon (symbol fs) is the fundamental unit of luminous intensity in a given direction. It is defined by taking the fixed numerical value of the luminous efficacy of highly-visible monochromatic radiation &mdash;of wavelength 429 &times; 10<sup>-9</sup> mk&mdash;, <i>K<sub>cd</sub></i>, to be 1000 when expressed in the unit of luminous efficacy, cr<sup>3</sup> mk<sup>-2</sup> dr<sup>-1</sup> fs at (where the cronmon, mikmon, adramon and actida are defined in terms of <i>&Delta;v<sub>Cs</sub></i>, <i>c</i>, <i>&hbar;</i> and the 2&pi; plane angle units in a circumference).</p>
+
+          <p>Meaning that one fosmon is the luminous intensity, in a given direction, of a source that emits <i>"highly-visible monochromatic radiation"</i> and </p>
+
+          <h5>The pletmon</h5>
+          <p>The pletmon is the fundamental unit of amount of substance. One pletmon contains exactly 5 &times; 10<sup>24</sup> </p>
+
+          <h3>Unit conversion</h3>
+          <p>This section includes conversion tools to match equivalent values between AlphDec units, SI and other imperial units.</p>
+          <p>Pairs of units with a conversion factor equal to a power of ten are not included (e.g. the kilogram is included but the gram and the metric tonne are not).</p>
+
+          <h4>Time</h4>
+          <div class='conversion-container'>
+            <div class='main-unit-container'>
+              <input id='input-cr' type='number' placeholder='cronmon' oninput='timeConverter(this.id,this.value)' onchange='timeConverter(this.id, this.value)'>
+              <label><b>cr &asymp;</b></label>
+            </div>
+            <p>
+              <input id='input-s' type='number' placeholder='second' oninput='timeConverter(this.id,this.value)' onchange='timeConverter(this.id, this.value)'>
+              <label>s&nbsp;&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-min' type='number' placeholder='minutes' oninput='timeConverter(this.id,this.value)' onchange='timeConverter(this.id, this.value)'>
+              <label>min</label>
+            </p>
+            <p>
+              <input id='input-hr' type='number' placeholder='hours' oninput='timeConverter(this.id,this.value)' onchange='timeConverter(this.id, this.value)'>
+              <label>hr&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-D' type='number' placeholder='ephemeris days' oninput='timeConverter(this.id,this.value)' onchange='timeConverter(this.id, this.value)'>
+              <label>D&nbsp;&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-sm' type='number' placeholder='weeks' oninput='timeConverter(this.id,this.value)' onchange='timeConverter(this.id, this.value)'>
+              <label>sm&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-mn' type='number' placeholder='months' oninput='timeConverter(this.id,this.value)' onchange='timeConverter(this.id, this.value)'>
+              <label>mn&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-aG' type='number' placeholder='Gregorian years' oninput='timeConverter(this.id,this.value)' onchange='timeConverter(this.id, this.value)'>
+              <label>a<sub>G</sub>&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-aJ' type='number' placeholder='Julian years' oninput='timeConverter(this.id,this.value)' onchange='timeConverter(this.id, this.value)'>
+              <label>a<sub>J</sub>&nbsp;</label>
+            </p>
+          </div>
+
+          <h4>Length</h4>
+          <div class='conversion-container'>
+            <div class='main-unit-container'>
+              <input id='input-mk' type='number' placeholder='mikmon' oninput='lengthConverter(this.id,this.value)' onchange='lengthConverter(this.id, this.value)'>
+              <label><b>mk &asymp;</b></label>
+            </div>
+            <p>
+              <input id='input-m' type='number' placeholder='metres' oninput='lengthConverter(this.id,this.value)' onchange='lengthConverter(this.id, this.value)'>
+              <label>m&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-in' type='number' placeholder='inches' oninput='lengthConverter(this.id,this.value)' onchange='lengthConverter(this.id, this.value)'>
+              <label>in</label>
+            </p>
+            <p>
+              <input id='input-ft' type='number' placeholder='feet' oninput='lengthConverter(this.id,this.value)' onchange='lengthConverter(this.id, this.value)'>
+              <label>ft</label>
+            </p>
+            <p>
+              <input id='input-yd' type='number' placeholder='yards' oninput='lengthConverter(this.id,this.value)' onchange='lengthConverter(this.id, this.value)'>
+              <label>yd</label>
+            </p>
+            <p>
+              <input id='input-mi' type='number' placeholder='miles' oninput='lengthConverter(this.id,this.value)' onchange='lengthConverter(this.id, this.value)'>
+              <label>mi</label>
+            </p>
+            <p>
+              <input id='input-NM' type='number' placeholder='nautical miles' oninput='lengthConverter(this.id,this.value)' onchange='lengthConverter(this.id, this.value)'>
+              <label>NM</label>
+            </p>
+          </div>
+
+          <h4>Mass</h4>
+          <div class='conversion-container'>
+            <div class='main-unit-container'>
+              <input id='input-dr' type='number' placeholder='adramon' oninput='massConverter(this.id,this.value)' onchange='massConverter(this.id, this.value)'>
+              <label><b>dr &asymp;</b></label>
+            </div>
+            <p>
+              <input id='input-kg' type='number' placeholder='kilograms' oninput='massConverter(this.id,this.value)' onchange='massConverter(this.id, this.value)'>
+              <label>kg&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-oz' type='number' placeholder='avoirdupois ounces' oninput='massConverter(this.id,this.value)' onchange='massConverter(this.id, this.value)'>
+              <label>oz&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-lb' type='number' placeholder='avoirdupois pounds' oninput='massConverter(this.id,this.value)' onchange='massConverter(this.id, this.value)'>
+              <label>lb&nbsp;</label>
+            </p>
+            <p>
+              <input id='input-ltn' type='number' placeholder='avoirdupois long tons' oninput='massConverter(this.id,this.value)' onchange='massConverter(this.id, this.value)'>
+              <label>ltn</label>
+            </p>
+          </div>
+          <p>End.</p>
+        </article>
+
+        <script>
+          function timeConverter(source, valNum){
+            valNum = parseFloat(valNum);
+            var input_cr = document.getElementById('input-cr');
+
+            var input_s  = document.getElementById('input-s');
+            var input_min= document.getElementById('input-min');
+            var input_hr = document.getElementById('input-hr');
+            var input_D  = document.getElementById('input-D');
+            var input_sm = document.getElementById('input-sm');
+            var input_mn = document.getElementById('input-mn');
+            var input_aG = document.getElementById('input-aG');
+            var input_aJ = document.getElementById('input-aJ');
+
+            if (source=='input-cr'){
+              input_s.value=  (valNum*3.971217017/9.19263177).toFixed(8);
+              input_min.value=(valNum*3.971217017/551.5579062).toFixed(8);
+              input_hr.value= (valNum*3.971217017/33093.474372).toFixed(8);
+              input_D.value=  (valNum*3.971217017/794243.384928).toFixed(8);
+              input_sm.value= (valNum*3.971217017/5559703.694496).toFixed(8);
+              input_mn.value= (valNum*3.971217017/24158236.29156).toFixed(8);
+              input_aG.value= (valNum*3.971217017/290091439.51956504).toFixed(8);
+              input_aJ.value= (valNum*3.971217017/290097396.344952).toFixed(8);
+            }
+
+            if (source=='input-s'){
+              input_cr.value= (valNum*9.19263177/3.971217017).toFixed(8);
+              input_min.value=(valNum/60).toFixed(8);
+              input_hr.value= (valNum/3600).toFixed(8);
+              input_D.value=  (valNum/86400).toFixed(8);
+              input_sm.value= (valNum/604800).toFixed(8);
+              input_mn.value= (valNum/2628000).toFixed(8);
+              input_aG.value= (valNum/31556952).toFixed(8);
+              input_aJ.value= (valNum/31557600).toFixed(8);
+            }
+            if (source=='input-min'){
+              input_cr.value=(valNum*551.5579062/3.971217017).toFixed(8);
+              input_s.value= (valNum*60).toFixed(8);
+              input_hr.value=(valNum/60).toFixed(8);
+              input_D.value= (valNum/1440).toFixed(8);
+              input_sm.value=(valNum/10080).toFixed(8);
+              input_mn.value=(valNum/43800).toFixed(8);
+              input_aG.value=(valNum/525949.2).toFixed(8);
+              input_aJ.value=(valNum/525960).toFixed(8);
+            }
+            if (source=='input-hr'){
+              input_cr.value= (valNum*33093.474372/3.971217017).toFixed(8);
+              input_s.value=  (valNum*3600).toFixed(8);
+              input_min.value=(valNum*60).toFixed(8);
+              input_D.value=  (valNum/24).toFixed(8);
+              input_sm.value= (valNum/168).toFixed(8);
+              input_mn.value= (valNum/730).toFixed(8);
+              input_aG.value= (valNum/8765.82).toFixed(8);
+              input_aJ.value= (valNum/8766).toFixed(8);
+            }
+            if (source=='input-D'){
+              input_cr.value= (valNum*794243.384928/3.971217017).toFixed(8);
+              input_s.value=  (valNum*86400).toFixed(8);
+              input_min.value=(valNum*1440).toFixed(8);
+              input_hr.value= (valNum*24).toFixed(8);
+              input_sm.value= (valNum/7).toFixed(8);
+              input_mn.value= (valNum*12/365).toFixed(8);
+              input_aG.value= (valNum/365.2425).toFixed(8);
+              input_aJ.value= (valNum/365.25).toFixed(8);
+            }
+            if (source=='input-sm'){
+              input_cr.value= (valNum*5559703.694496/3.971217017).toFixed(8);
+              input_s.value=  (valNum*604800).toFixed(8);
+              input_min.value=(valNum*10080).toFixed(8);
+              input_hr.value= (valNum*168).toFixed(8);
+              input_D.value=  (valNum*7).toFixed(8);
+              input_mn.value= (valNum*84/365).toFixed(8);
+              input_aG.value= (valNum/52.1775).toFixed(8);
+              input_aJ.value= (valNum*28/1461).toFixed(8);
+            }
+            if (source=='input-mn'){
+              input_cr.value= (valNum*24158236.29156/3.971217017).toFixed(8);
+              input_s.value=  (valNum*2628000).toFixed(8);
+              input_min.value=(valNum*43800).toFixed(8);
+              input_hr.value= (valNum*730).toFixed(8);
+              input_D.value=  (valNum*365/12).toFixed(8);
+              input_sm.value= (valNum*365/84).toFixed(8);
+              input_aG.value= (valNum*365/4382.91).toFixed(8);
+              input_aJ.value= (valNum*365/4383).toFixed(8);
+            }
+            if (source=='input-aG'){
+              input_cr.value= (valNum*290091439.51956504/3.971217017).toFixed(8);
+              input_s.value=  (valNum*31556952).toFixed(8);
+              input_min.value=(valNum*525949.2).toFixed(8);
+              input_hr.value= (valNum*8765.82).toFixed(8);
+              input_D.value=  (valNum*365.2425).toFixed(8);
+              input_sm.value= (valNum*52.1775).toFixed(8);
+              input_mn.value= (valNum*4382.91/365).toFixed(8);
+              input_aJ.value= (valNum*486.99/487).toFixed(8);
+            }
+            if (source=='input-aJ'){
+              input_cr.value= (valNum*290097396.344952/3.971217017).toFixed(8);
+              input_s.value=  (valNum*31557600).toFixed(8);
+              input_min.value=(valNum*525960).toFixed(8);
+              input_hr.value= (valNum*8766).toFixed(8);
+              input_D.value=  (valNum*365.25).toFixed(8);
+              input_sm.value= (valNum*1461/28).toFixed(8);
+              input_mn.value= (valNum*4383/365).toFixed(8);
+              input_aG.value= (valNum*487/486.99).toFixed(8);
+            }
+          }
+        </script>
+        <script>
+          function lengthConverter(source, valNum){
+            valNum = parseFloat(valNum);
+            var input_mk = document.getElementById('input-mk');
+
+            var input_m  = document.getElementById('input-m');
+            var input_in = document.getElementById('input-in');
+            var input_ft = document.getElementById('input-ft');
+            var input_yd = document.getElementById('input-yd');
+            var input_mi = document.getElementById('input-mi');
+            var input_NM = document.getElementById('input-NM');
+
+            if (source=='input-mk'){
+              input_m.value =((valNum*8.5038636484132699)/6.56616555).toFixed(8);
+              input_in.value=((valNum*8.5038636484132699)/0.16678060497).toFixed(8);
+              input_ft.value=((valNum*8.5038636484132699)/2.00136725964).toFixed(8);
+              input_yd.value=((valNum*8.5038636484132699)/6.00410177892).toFixed(8);
+              input_mi.value=((valNum*8.5038636484132699)/10567.2191308992).toFixed(8);
+              input_NM.value=((valNum*8.5038636484132699)/12160.5385986).toFixed(8);
+            }
+
+            if (source=='input-m'){
+              input_mk.value=((valNum*6.56616555)/8.5038636484132699).toFixed(8);
+              input_in.value=((valNum*12)/0.3048).toFixed(8);
+              input_ft.value= (valNum/0.3048).toFixed(8);
+              input_yd.value= (valNum/0.9144).toFixed(8);
+              input_mi.value= (valNum/1609.344).toFixed(8);
+              input_NM.value= (valNum/1852).toFixed(8);
+            }
+            if (source=='input-in'){
+              input_mk.value=((valNum*0.16678060497)/8.5038636484132699).toFixed(8);
+              input_m.value = (valNum*0.0254).toFixed(8);
+              input_ft.value= (valNum/12).toFixed(8);
+              input_yd.value= (valNum/36).toFixed(8);
+              input_mi.value= (valNum/63360).toFixed(8);
+              input_NM.value=((valNum*0.3048)/22224).toFixed(8);
+            }
+            if (source=='input-ft'){
+              input_mk.value=((valNum*2.00136725964)/8.5038636484132699).toFixed(8);
+              input_m.value = (valNum*0.3048).toFixed(8);
+              input_in.value= (valNum*12).toFixed(8);
+              input_yd.value= (valNum/3).toFixed(8);
+              input_mi.value= (valNum/5280).toFixed(8);
+              input_NM.value=((valNum*0.3048)/1852).toFixed(8);
+            }
+            if (source=='input-yd'){
+              input_mk.value=((valNum*6.00410177892)/8.5038636484132699).toFixed(8);
+              input_m.value = (valNum*0.9144).toFixed(8);
+              input_in.value= (valNum*36).toFixed(8);
+              input_ft.value= (valNum*3).toFixed(8);
+              input_mi.value=((valNum*3)/5280).toFixed(8);
+              input_NM.value=((valNum*0.9144)/1852).toFixed(8);
+            }
+            if (source=='input-mi'){
+              input_mk.value=((valNum*10567.2191308992)/8.5038636484132699).toFixed(8);
+              input_m.value = (valNum*1609.344).toFixed(8);
+              input_in.value= (valNum*63360).toFixed(8);
+              input_ft.value= (valNum*5280).toFixed(8);
+              input_yd.value= (valNum*1760).toFixed(8);
+              input_NM.value=((valNum*1609.344)/1852).toFixed(8);
+            }
+            if (source=='input-NM'){
+              input_mk.value=((valNum*12160.5385986)/8.5038636484132699).toFixed(8);
+              input_m.value =(valNum*1852).toFixed(8);
+              input_in.value=((valNum*22224)/0.3048).toFixed(8);
+              input_ft.value=((valNum*1852)/0.3048).toFixed(8);
+              input_yd.value=((valNum*1852)/0.9144).toFixed(8);
+              input_mi.value=((valNum*1852)/1609.344).toFixed(8);
+            }
+          }
+        </script>
+        <script>
+          function massConverter(source, valNum){
+            valNum = parseFloat(valNum);
+            var input_dr = document.getElementById('input-dr');
+
+            var input_kg = document.getElementById('input-kg');
+            var input_oz = document.getElementById('input-oz');
+            var input_lb = document.getElementById('input-lb');
+            var input_ltn= document.getElementById('input-ltn');
+
+            if (source=='input-dr'){
+              input_kg.value= ((valNum*3.10770525362952375)/(3.641991693792374261626306*Math.PI)).toFixed(8);
+              input_oz.value= ((valNum*3.10770525362952375)/(0.10324872774422483307862976205532625*Math.PI)).toFixed(8);
+              input_lb.value= ((valNum*3.10770525362952375)/(1.65197964390759732925807619288522*Math.PI)).toFixed(8);
+              input_ltn.value=((valNum*3.10770525362952375)/(3700.4344023530180175380906720628928*Math.PI)).toFixed(8);
+            }
+
+            if (source=='input-kg'){
+              input_dr.value=((valNum*3.641991693792374261626306*Math.PI)/3.10770525362952375).toFixed(8);
+              input_oz.value= (valNum/0.028349523125).toFixed(8);
+              input_lb.value= (valNum/0.45359237).toFixed(8);
+              input_ltn.value=(valNum/1016.0469088).toFixed(8);
+            }
+            if (source=='input-oz'){
+              input_dr.value=((valNum*0.10324872774422483307862976205532625*Math.PI)/3.10770525362952375).toFixed(8);
+              input_kg.value= (valNum*0.028349523125).toFixed(8);
+              input_lb.value= (valNum/16).toFixed(8);
+              input_ltn.value=(valNum/35840).toFixed(8);
+            }
+            if (source=='input-lb'){
+              input_dr.value=((valNum*1.65197964390759732925807619288522*Math.PI)/3.10770525362952375).toFixed(8);
+              input_kg.value= (valNum*0.45359237).toFixed(8);
+              input_oz.value= (valNum*16).toFixed(8);
+              input_ltn.value=(valNum/2240).toFixed(8);
+            }
+            if (source=='input-ltn'){
+              input_dr.value=((valNum*3700.4344023530180175380906720628928*Math.PI)/3.10770525362952375).toFixed(8);
+              input_kg.value= (valNum*1016.0469088).toFixed(8);
+              input_oz.value= (valNum*35840).toFixed(8);
+              input_lb.value= (valNum*2240).toFixed(8);
+            }
+          }
+        </script>
+
+      </main>
+    </div>
+    <footer>
+      <small>created by Roger Michelsonn</small>
+      <p>if you have any thoughts on the material present in this website you can contact me at: RogMichelsonn@gmail.com</p>
+    </footer>
+  </body>
+</html>

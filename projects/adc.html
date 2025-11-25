@@ -1,0 +1,580 @@
+<!doctype html>
+<html dir='ltr' lang='en-gb'>
+    <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel='home' href='index.html'>
+
+    <link rel='icon' type='../image/png' href='../images/logotip.png'>
+    <link rel='stylesheet' href='../styles.css'>
+
+    <title>Alpha-Decimal units | Hat tips</title>
+
+    <script src='../js/common-scripts.js'></script>
+    <script id='MathJax-script' async src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
+
+      ol {counter-reset: item;}
+      ol > li {counter-increment: item;}
+      ol li:before{margin-left: -2em;}
+      
+      ol ol > li {display: block;}
+      ol ol > li:before {content: counters(item, '.') '. ';}
+
+      .STIX{font-family: 'STIX Two Text', serif;}
+      
+      .notes{list-style-type: lower-alpha;}
+      .notes :target{background-color: var(--grey3-clr);}
+      .notes ::marker{font-weight: bold;}
+
+      div.conversion-container{
+        padding: 0.5em;
+        display: grid;
+        overflow-x: auto;
+        text-align: center;
+        font-family: monospace;
+        background-color: var(--hbg2-clr);
+        grid-template-areas: 'hd hd';
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .conversion-container p{margin: 0.5em 1em 0.5em 0;}
+      .conversion-container input{
+        width:80%;
+        text-align: right;
+      }
+
+      div.main-unit-container{
+        border: 0.1em solid var(--text-clr);
+        grid-area: hd;
+        text-align: center;
+      }
+      .main-unit-container input{width: 16em;}
+
+      @media screen and (max-width: 640px){
+        div.conversion-container{
+          grid-template-areas: 'hd';
+          grid-template-columns: repeat(1, 1fr);
+        }
+        div.main-unit-container input{width: 80%;}
+      }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <h1>&Hcirc;at tips</h1>
+    </header>
+    <div class='menu'>
+      <button onclick='themeToggle()' type='button' id='toggle-theme'>&#9728;&#9789;</button>
+    </div>
+
+    <div class='content'>
+      <aside>
+        <small>hat links</small>
+        <ul>
+          <li class='index-home'><a href='../index.html'>lobby page</a></li>
+          <li><a href='../contents.html'>content page</a></li>
+          <li><a href='../image-references.html'>image references</a></li>
+        </ul>
+        <small>projects</small>
+        <ul>
+          <li class='index-active'>Alpha-Decimal</li>
+          <li><a href='redbin.html'>Reduced Binary</a></li>
+        </ul>
+      </aside>
+      <main id='main'>
+        <article>
+            <h1>The Alpha-Decimal system of units</h1>
+            <small>originally uploaded 2025-April-7</small>
+            <hr>
+
+            <img src='../images/adc-banner.png' alt='image: alpha-decimal units banner' style='width:98%;'>
+
+            <p>[Introduction]</p>
+            <h2>Defining the units</h2>
+            <p>Description of the units is given, for each one, as a product of the defining the constants and a set of scaling (A<sub>n</sub>) factors.</p>
+
+            <small class='equation'>
+              \begin{align*}
+                1\ \text{cr} &= A_1\ \frac{1}{\Delta v_{Cs}} \tag{1}\label{eq1} \\
+                1\ \text{br} &= \frac{A_1}{A_2}\ \frac{c}{\Delta v_{Cs}} \tag{2}\label{eq2} \\
+                1\ \text{nt} &= \frac{1}{A_3}\ \tau \tag{3}\label{eq3} \\
+                1\ \text{dr} &= \frac{A_2^2}{A_1 A_3 A_4}\ \frac{\Delta v_{Cs}\ \tau\ \hbar}{c^2} \tag{4}\label{eq4} \\
+                1\ \text{lc} &= \frac{1}{A_5}\ q_e \tag{5}\label{eq5} \\
+                1\ \text{zs} &= \frac{A_6}{A_1 A_3 A_4}\ \frac{\Delta v_{Cs}\ \tau\ \hbar}{k_B} \tag{6}\label{eq6} \\
+                1\ \text{pl} &= A_7\ \frac{1}{N_A} \tag{7}\label{eq7} \\
+                1\ \text{fs} &= \frac{A_3}{A_1^2 A_4 A_8}\ \frac{(\Delta v_{Cs})^{2}\ \hbar\ K_{HV}}{\tau} \tag{8}\label{eq8}
+              \end{align*}
+            </small>
+            
+            <p>Each A-factor corresponding to the numerical value of one specific constant as show in table 1.</p>
+
+            <small>Table 1.</small>
+            Numeric values of scaling A-factors and defining constant.
+            <div class='table-container'>
+              <table>
+                <tr>
+                  <th>Scaling factor's name</th>
+                  <th scope='col'>A<sub>1</sub></th>
+                  <th scope='col'>A<sub>2</sub></th>
+                  <th scope='col'>A<sub>3</sub></th>
+                  <th scope='col'>A<sub>4</sub></th>
+                  <th scope='col'>A<sub>5</sub></th>
+                  <th scope='col'>A<sub>6</sub></th>
+                  <th scope='col'>A<sub>7</sub></th>
+                  <th scope='col'>A<sub>8</sub></th>
+                </tr>
+                <tr>
+                  <td>Corresponding constant</td>
+                  <td style='text-align: center;'><i class='STIX'>&Delta;v<sub>Cs</sub></i></td>
+                  <td style='text-align: center;'><i class='STIX'>c</i></td>
+                  <td style='text-align: center;'><i class='STIX'>&tau;</i></td>
+                  <td style='text-align: center;'><i class='STIX'>&hbar;</i></td>
+                  <td style='text-align: center;'><i class='STIX'>q<sub>e</sub></i></td>
+                  <td style='text-align: center;'><i class='STIX'>k<sub>B</sub></i></td>
+                  <td style='text-align: center;'><i class='STIX'>N<sub>A</sub></i></td>
+                  <td style='text-align: center;'><i class='STIX'>K<sub>HV</sub></i></td>
+                </tr>
+                <tr>
+                  <td>Numeric value <sup><a href='#table1-note-a'>a</a></td>
+                  <td>3.971 216 960 &times; 10<sup>9</sup></td>
+                  <td>10<sup>8</sup></td>
+                  <td>2&pi;</td>
+                  <td>10<sup>&minus;34</sup></td>
+                  <td>10<sup>&minus;18</sup></td>
+                  <td>10<sup>&minus;24</sup></td>
+                  <td>2 &times; 10<sup>24</sup></td>
+                  <td>10<sup>3</sup></td>
+                </tr>
+              </table>
+            </div>
+            <ol class='notes'>
+              <li id='table1-note-a'>The scaling (A<sub>n</sub>) factors are dimensionless while the constants have units (which can be infered from equations 1 to 8).</li>
+            </ol>
+
+            <small class='equation'>
+              \begin{align*}
+                1\ \text{cr} &= \frac{3\ 971\ 216\ 960}{\Delta v_{Cs}} \\
+                1\ \text{br} &= \frac{39.712\ 169\ 6\ c}{\Delta v_{Cs}} \\
+                1\ \text{nt} &= \frac{\tau}{2\pi}\  \\
+                1\ \text{dr} &= \frac{10^{41}}{7.942\ 433\ 92\ \pi}\ \frac{\Delta v_{Cs}\ \tau\ \hbar}{c^2} \\
+                1\ \text{lc} &= 10^{18}\ q_e \\
+                1\ \text{zs} &= \frac{1}{0.794\ 243\ 392\ \pi}\ \frac{\Delta v_{Cs}\ \tau\ \hbar}{k_B} \\
+                1\ \text{pl} &= \frac{2 \times10^{24}}{N_A} \\
+                1\ \text{fs} &= \frac{\pi \times10^{13}}{7.885\ 282\ 071\ 695\ 820\ 8}\ \frac{(\Delta v_{Cs})^{2}\ \hbar\ K_{HV}}{\tau}
+              \end{align*}
+            </small>
+
+            <p>Comparing this system of units with the definition of SI units as listed in the SI-brochure (9th edition, version 3.02 as of October 2025) the conversion factors </p>
+
+            <h1>OLD TEXT</h1>
+            <small>v2</small>
+            <p>Units are a tool for communication. Just like words, they are relevant in everyday life. When it comes to language, different interpretations of the same words result in the art of writing. Units, however, demand precision by their very nature. This requirement has led to a century's long journey of refining standards for the rigorous exchange of information.</p>
+            <p>A process that culminated in the current realisation of the International System (the SI). Since its creation, countless people have worked together to refine the metric system using cutting-edge technology for it to be useful for anyone at any time, transcending all fields and applications. Now, it is ubiquitous in modern society and, perhaps, one of the most successful standards ever written.</p>
+            <p>It may be perplexing to learn, then, the common use of units outside and even conflicting with the SI in academia. But many of these serve one purpose, to give fundamental constants convenient values.</p>
+            <p>Our current models of the universe show constant figures shaping our universe. While the SI is defined with them, a compromise is made to preserve the size of the units at the cost of awkward numeric values given to the defining constants.</p>
+            <p>Natural units were created prioritising numeric constants. They are not only helpful when working at the frontier of science but have also given insight into our modern theories. However, they are often too big or too small for ordinary application and their existence outside of the SI creates unnecessary conflicting conventions.</p>
+
+            <p>The Alpha-Decimal (abbreviated <i>'AlphDec'</i> or <i>'ADC'</i>) system of units takes the defining constants of SI and assigns to each a numeric value simple to express with scientific notation at a scale suitable for everyday life. Serving as an example for a more natural and comprehensive standard of measurement.</p>
+
+            <hr>
+            <small>v1</small>
+            <h2>Contents</h2>
+            <a href='#abstract'>(Abstract)</a>
+            <ul>
+                <li><a href='#table1'>table 1</a></li>
+                <li><a href='#table2'>table 2</a></li>
+                <li><a href='#table3'>table 3</a></li>
+              </ul>
+            <ol>
+              <li><a href='#title-defining-the-units'>Defining the units</a></li>
+                <ol>
+                  <li><a href='#subtitle-base-units'>Base units</a></li>
+                  <ol>
+                    <li>The anta</li>
+                    <li>The chron</li>
+                    <ul>
+                      <li>equation 2</li>
+                    </ul>
+                    <li>The brim</li>
+                    <ul>
+                      <li>equation 3</li>
+                    </ul>
+                  </ol>
+                </ol>
+              <li><a href='#title-conversion-tools'>Conversion tools</a></li>
+                <ol>
+                  <li><a href='#subtitle-convertool-length'>Length</a></li>
+                </ol>
+              <li><a href='#bibliography'>Bibliography</a></li>
+            </ol>
+            <hr>
+
+            <h2 id='abstract'>Abstract</h2>
+            <p><b>Table 1. </b>Defining constants, numeric value and dimension.</p>
+            <div id='table1' class='table-container'>
+              <table>
+                <tr>
+                  <th scope='col'>#</th>
+                  <th scope='col'>Constant</th>
+                  <th scope='col'>Symbol</th>
+                  <th scope='col'>ADC Numeric value</th>
+                  <th scope='col'>QSN</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Complete angle</td>
+                  <td class='STIX'><i>&tau;</i></td>
+                  <td>2&pi;</td>
+                  <td>(b)</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Hyperfine transition frequency of caesium-133</td>
+                  <td class='STIX'><i>&Delta;v<sub>Cs</sub></i></td>
+                  <td>3.971217017&times;10<sup>9</sup></td>
+                  <td>c</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Speed of light in a vacuum</td>
+                  <td class='STIX'><i>c</i></td>
+                  <td>10<sup>8</sup></td>
+                  <td>cb</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Reduced Planck constant</td>
+                  <td class='STIX'><i>&hbar;</i></td>
+                  <td>10<sup>-34</sup></td>
+                  <td>(c)cdb</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Elementary charge</td>
+                  <td><i class='STIX'>q<sub>e</sub></i> <sup><a href='#table1-note-a'>a</a></sup></td>
+                  <td>10<sup>-18</sup></td>
+                  <td>baab</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Boltzmann constant</td>
+                  <td class='STIX'><i>k<sub>B</sub></i></td>
+                  <td>10<sup>-24</sup></td>
+                  <td>edb.c</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Luminous efficacy of highly visible monochromatic radiation <sup><a href='#table1-note-b'>b</a></sup></td>
+                  <td class='STIX'><i>K<sub>HV</sub></i></td>
+                  <td>10<sup>3</sup></td>
+                  <td>(b)fec.ab</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Avogadro constant</td>
+                  <td class='STIX'><i>N<sub>A</sub></i></td>
+                  <td>2&times;10<sup>24</sup></td>
+                  <td>.aac</td>
+                </tr>
+              </table>
+            </div>
+
+            <ol class='notes'>
+              <li id='table1-note-a'> The symbol for the elementary charge is usually <i class='STIX'>e</i>.</li>
+              <li id='table1-note-b'> The SI brochure refers to <i class='STIX'>K<sub>HV</sub></i> as the <i>'luminous efficacy of monochromatic radiation of frequency 540 &times; 10<sup>12</sup> Hz'</i> with the symbol <i class='STIX'>K<sub>cd</sub></i>.</li>
+            </ol>
+
+            <p><b>Table 2. </b>Conversion factors for SI to Alpha-Decimal units</p>
+            <div id='table2' class='table-container'>
+              <table>
+                <tr>
+                  <th colspan='2' rowspan='2'>Quantity</th>
+                  <th colspan='5'>SI to ADC</th>
+                </tr>
+                <tr>
+                  <th scope='col' colspan=2>SI unit &approx;</th>
+                  <th scope='col' colspan='2'>ADC unit</th>
+                  <th scope='col'>sy</th>
+                </tr>
+                <tr>
+                  <td>Plane angle</td>
+                  <td>A</td>
+                  <td>1 radian</td>
+                  <td>(rad) =</td>
+                  <td style='text-align: center;'>1</td>
+                  <td>anta</td>
+                  <td>nt</td>
+                </tr>
+                <tr>
+                  <td>Time</td>
+                  <td>T</td>
+                  <td>1 second</td>
+                  <td>(s) &approx;</td>
+                  <td>2.314 814 760 978</td>
+                  <td>chron</td>
+                  <td>cr</td>
+                </tr>
+                <tr>
+                  <td>Length</td>
+                  <td>L</td>
+                  <td>1 metre</td>
+                  <td>(m) &approx;</td>
+                  <td>0.772 139 091 297</td>
+                  <td>brim</td>
+                  <td>br</td>
+                </tr>
+                <tr>
+                  <td>Mass</td>
+                  <td>M</td>
+                  <td>1 kilogram</td>
+                  <td>(kg) &approx;</td>
+                  <td>3.681 705 121 903</td>
+                  <td>adra</td>
+                  <td>dr</td>
+                </tr>
+                <tr>
+                  <td>Electric current</td>
+                  <td>E</td>
+                  <td>1 ampere</td>
+                  <td>(A) &approx;</td>
+                  <td>2.696 331 982 877</td>
+                  <td>ectre</td>
+                  <td>ct</td>
+                </tr>
+                <tr>
+                  <td>Thermodynamic temperature</td>
+                  <td>C</td>
+                  <td>1 kelvin</td>
+                  <td>(K) &approx;</td>
+                  <td>5.655 758 781 824</td>
+                  <td>zes</td>
+                  <td>zs</td>
+                </tr>
+                <tr>
+                  <td>Luminous intensity</td>
+                  <td>J</td>
+                  <td>1 candela</td>
+                  <td>(cd) &approx;</td>
+                  <td>0.259 101 930 657</td>
+                  <td>fos</td>
+                  <td>fs</td>
+                </tr>
+                <tr>
+                  <td>Amount of substance</td>
+                  <td>N</td>
+                  <td>1 mole</td>
+                  <td>(mol) &approx;</td>
+                  <td>0.301 107 038 000</td>
+                  <td>plet</td>
+                  <td>pl</td>
+                </tr>
+              </table>
+            </div>
+
+            <p><b>Table 3. </b>Conversion factors for Alpha-Decimal to SI units</p>
+            <div id='table3' class='table-container'>
+              <table>
+                <tr>
+                  <th colspan='2' rowspan='2'>Quantity</th>
+                  <th colspan='5'>SI to ADC</th>
+                </tr>
+                <tr>
+                  <th scope='col' colspan=2>SI unit &approx;</th>
+                  <th scope='col' colspan='2'>ADC unit</th>
+                  <th scope='col'>sy</th>
+                </tr>
+                <tr>
+                  <td>Plane angle</td>
+                  <td>A</td>
+                  <td>1 anta</td>
+                  <td>(nt) =</td>
+                  <td style='text-align: center;'>1</td>
+                  <td>radians</td>
+                  <td>rad</td>
+                </tr>
+                <tr>
+                  <td>Time</td>
+                  <td>T</td>
+                  <td>1 chron</td>
+                  <td>(cr) &approx;</td>
+                  <td>0.432 000 010 047</td>
+                  <td>seconds</td>
+                  <td>s</td>
+                </tr>
+                <tr>
+                  <td>Length</td>
+                  <td>L</td>
+                  <td>1 brim</td>
+                  <td>(br) &approx;</td>
+                  <td>1.295 103 448 681</td>
+                  <td>metres</td>
+                  <td>m</td>
+                </tr>
+                <tr>
+                  <td>Mass</td>
+                  <td>M</td>
+                  <td>1 adra</td>
+                  <td>(dr) &approx;</td>
+                  <td>0.271 613 278 872</td>
+                  <td>kilograms</td>
+                  <td>kg</td>
+                </tr>
+                <tr>
+                  <td>Electric current</td>
+                  <td>E</td>
+                  <td>1 ectre</td>
+                  <td>(ct) &approx;</td>
+                  <td>0.370 874 212 208</td>
+                  <td>amperes</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Thermodynamic temperature</td>
+                  <td>C</td>
+                  <td>1 zes</td>
+                  <td>(zs) &approx;</td>
+                  <td>0.176 810 935 292</td>
+                  <td>kelvin</td>
+                  <td>K</td>
+                </tr>
+                <tr>
+                  <td>Luminous intensity</td>
+                  <td>J</td>
+                  <td>1 fos</td>
+                  <td>(fs) &approx;</td>
+                  <td>3.859 484 942 714</td>
+                  <td>candelas</td>
+                  <td>cd</td>
+                </tr>
+                <tr>
+                  <td>Amount of substance</td>
+                  <td>N</td>
+                  <td>1 plet</td>
+                  <td>(pl) &approx;</td>
+                  <td>3.321 078 134 348</td>
+                  <td>moles</td>
+                  <td>mol</td>
+                </tr>
+              </table>
+            </div>
+
+            <h2 id='title-defining-the-units'>1. Defining the units</h2>
+            <p>The Alpha-Decimal standard conceives 8 <i>'base'</i> units to measure all physical quantites and from which a different set of <i>'derived'</i> units are defined as products of powers of the base units. Secondary, <i>'complementary'</i> units are also defined as sharing the same basic quantities and defining constants with the base units, separated by a different name, symbol and magnitude</p>
+
+            <h3 id='subtitle-base-units'>1.1. Base units</h3>
+            <p>One base unit is assigned to each base quantity. Like all Alpha-Decimal units they are named after a Greek word, the symbol of a base unit is always composed by the first two consonant letters of their name using the international latin spelling.</p>
+
+            <p>The international spelling is independent of language and serves as a neutral way of refering to the units using letters of the latin alphabet that leave out ambiguity for the pronunciation in most cases for most languages.</p>
+
+            <p>Unit names may be adapted, in this document the anglicised names are proposed, as best suited considering how words of Greek origin are spelled in a given language. These names should still contain the letters used for the symbol but are not required to be the first 2.</p>
+
+            Following the recommended order for the base physical quantities (plane angle, time, length, mass, electric current, thermodynamic temperature, luminous intensity and amount of substance).
+
+            <h4>The anta</h4>
+            <p>The anta (), after <i lang='el'>'ἄντα'</i></p>
+
+            <h4>The chron</h4>
+            <p>The chron (<i>'cron'</i>, symbol cr), after <i lang='el'>'χρόνος'</i>, is the base unit of time. Defined by taking the fixed numerical value of the unperturbed ground-state hyperfine transition frequency of the caesium-133 atomo, <i class='STIX'>&Delta;v<sub>Cs</sub></i>, to be 3 971 217 017 when expressed in the unit cr<sup>&minus;1</sup>.</p>
+
+            <p>This definition makes the mean solar day roughly equal to 200 000 cr. Resulting in a more convenient alternative for metric time.</p>
+
+            <p>Considering that dividing the day between daytime and nightime is a common practice to simplify communicating time (e.g. the 12-hour format), these are divided by a power of 10 instead of the whole day.</p>
+
+            <p>Formalising the definition with an equation, the chron is expressed in terms of <i class='STIX'>&Delta;v<sub>Cs</sub></i> as</p>
+
+            <small class='equation'>
+              \[1\ \text{cr} = \frac{3971217017}{\Delta v_{Cs}}. \tag{2}\label{eq2}\]
+            </small>
+
+            <p>In order to derive a conversion factor between the chron and the second the previous formula can be compared to that which defines the second</p>
+
+            <small class='equation'>
+              \[1\ \text{s} = \frac{9192631770}{\Delta v_{Cs}}\]
+            </small>
+
+            <p>to then factor <i class='STIX'>&Delta;v<sub>Cs</sub></i> :</p>
+            
+           <small class='equation'>
+              \[\frac{1}{\Delta v_{Cs}} = \frac{1\ \text{cr}}{3971217017} = \frac{1\ \text{s}}{9192631770}\]
+           </small>
+
+            <button onclick='collapseContent()' type='button' class='collapsible'>equation development</button>
+            <div class='collapsible-content'>
+              \[\frac{1\ \text{cr}}{3971217017} = \frac{1\ \text{s}}{9192631770}\]
+
+              \begin{align*}
+                1\ \text{cr} &= \left(\frac{3971217017}{9192631770} \right)\ \text{s} \\
+                &= \left(\frac{3.971217017}{9.19263177} \right)\ \text{s} \\
+                &\approx 0.432\ 000\ 010\ 047\ \text{s}, \\
+                \\
+                1\ \text{s} &= \left(\frac{9192631770}{3971217017} \right)\ \text{cr} \\
+                &= \left(\frac{9.19263177}{3.971217017} \right)\ \text{cr} \\
+                &\approx 2.314\ 814\ 760\ 978\ \text{cr}.
+              \end{align*}
+            </div>
+
+            <p>Obtaining that a chron is approximately 0.4 seconds.</p>
+
+            <h4>The brim</h4>
+            <p>The brim (symbol br) is the base unit of length. Defined by taking the fixed numerical value of the speed of light in a vacuum, <i class='STIX'>c</i>, to be 10<sup>8</sup> when expressed in the unit cr<sup>&minus;1</sup> br.</p>
+
+            <small class='equation'>
+              \[1\ \text{br} = \left(\frac{c}{10^8} \right)\ \text{cr} = \frac{3971217017}{10^8} \frac{c}{\Delta v_{Cs}}\]
+            \[1\ \text{br} = 39.712\ 170\ 17\ \frac{c}{\Delta v_{Cs}}. \tag{3}\label{eq3}\]
+            </small>
+
+            <p>With the metre being defined as</p>
+
+            <small class='equation'>
+              \[1\ \text{m} = \frac{91.9263177}{2.99792458} \frac{c}{\Delta v_{Cs}}\]
+            </small>
+
+            <p>A conversion factor can be obtained between the two:</p>
+
+            <button onclick='collapseContent()' type='button' class='collapsible'>equation development</button>
+            <div class='collapsible-content'>
+              \[\frac{c}{\Delta v_{Cs}} = \frac{1\ \text{br}}{39.71217017} = \left(\frac{2.99792458}{91.9263177} \right)\ \text{m}\]
+              \[\frac{1\ \text{br}}{39.71217017} = \left(\frac{2.99792458}{91.9263177} \right)\ \text{m}\]
+
+              \begin{align*}
+                1\ \text{br} &= \left(\frac{39.71217017 \times 2.99792458}{91.9263177} \right)\ \text{m} \\
+                &= \left(\frac{11.90540910777857786}{9.19263177}\right)\ \text{m} \\
+                &= \left(\frac{8.5038636484132699}{6.56616555}\right)\ \text{m} \\
+                &\approx 1.295\ 103\ 448\ 681\ \text{m}, \\
+                \\
+                1\ \text{m} &= \left(\frac{6.56616555}{8.5038636484132699}\right)\ \text{br} \\
+                &\approx 0.772\ 139\ 091\ 297\ \text{br}.
+              \end{align*}
+            </div>
+            <p>Obtaining that a brim is approximately 1.3 m.</p>
+            <p>US customary units are defined in terms of SI units meaning these also share the same defining constants. For length, in order to convert brim to feet the factor between brim and metres is divided by 0.3048<sup><a href='#src-NIST-HB44-2024-App.C'>[1]</a></sup>, obtaining that one brim is roughly 4.25 ft.</p>
+
+            <small class='equation'>
+              \[1\ \text{br} = \left(\frac{8.5038636484132699}{2.00136725964} \right)\ \text{ft} \approx 4.249\ 027\ 062\ 601\ \text{ft}\]
+              \[1\ \text{ft} = \left(\frac{2.00136725964}{8.5038636484132699} \right)\ \text{br} \approx 0.235\ 347\ 995\ 027\ \text{br}\]
+            </small>
+
+            <p>For more conversion factors between units of length see <a href='#subtitle-convertool-length'>2.1. Conversion tools: length</a>.</p>
+            
+            <h4>The adra</h4>
+            <p>The adra (symbol dr) is the base unit of mass. Defined by taking the fixed numerical value of the reduced Planck constant, <i class='STIX'>&hbar;</i>, to be 10<sup>&minus;34</sup> when expressed in the unit nt<sup>&minus;1</sup> cr<sup>&minus;1</sup> br<sup>2</sup> dr.</p>
+
+            <h2 id='title-conversion-tools'>2. Conversion tools</h2>
+            <h3 id='subtitle-convertool-length'>2.1. Length</h3>
+            <h2 id='bibliography'>3. Bibliography</h2>
+            <ol>
+              <li id='src-NIST-HB44-2024-App.C'>National Institute of Standards and Technology (NIST) Handbook 44, Appendix C. <i>'General Tables of Units of Measurement (2024)'</i> retrieved from <a href='https://www.nist.gov/pml/owm/nist-handbook-44-current-edition'>www.nist.gov</a>. <a href='https://web.archive.org/web/20250222090721/https://www.nist.gov/pml/owm/nist-handbook-44-current-edition'>Archived</a> from the original on 22 February 2025.</li>
+            </ol>
+        </article>
+      </main>
+    </div>
+    <footer>
+      <small>by Roger</small>
+      <p>if you have any thoughts on the material present in this website you can contact me at: RogMichelsonn@gmail.com</p>
+    </footer>
+  </body>
+</html>
